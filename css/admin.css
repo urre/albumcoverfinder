@@ -1,0 +1,99 @@
+
+input[type="text"] {
+	margin-bottom: 10px;
+	float: left;
+	width: 42%;
+}
+
+#album_info .button {
+	display: inline-block;
+	margin-bottom: 4px;
+}
+
+
+#album_info {
+	display: none;
+	width: 300px;
+	margin: 1em 0 1em 0;
+}
+
+#cover img {
+	width: 200px;
+	height: auto;
+	margin-bottom: 10px;
+}
+
+#pid,
+#theimgurl {
+	display: none;
+}
+
+#wait {
+	background: url('../img/loading.gif') no-repeat;
+	width: 24px;
+	height: 24px;
+	display: none;
+	position: absolute;
+	top: 0px;
+	right: 12px;
+}
+
+.lfm_attachments {
+	margin: 1em 0 1em 0;
+	display: none;
+
+}
+
+/**
+ * Attachments
+ */
+
+.lfm_file {
+}
+
+.lfm_file img {
+	float: left;
+	margin: 0 10px 10px 10px;
+	width: 50px;
+	height: 50px;
+}
+
+.lfm_text {
+	float: left;
+}
+
+.lfm_detach_attachment {
+	display: block;
+	margin: 10px 0 0 4px;
+}
+
+
+.countattachments {
+	background:none;
+	border:none;
+	padding:none;
+	color:#21759b;
+	text-decoration:underline;
+	margin-left: 10px;
+}
+
+.lfm_viewattachments.button {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+
+#postimagediv .inside p i.info {
+	-webkit-border-radius: 3px;
+	-moz-border-radius   : 3px;
+	border-radius        : 3px;
+	padding: 2px;
+	display: block;
+
+	background: rgb(255, 251, 204);
+	border: 1px solid rgb(230, 219, 85);
+}
+
+.cf:before, .cf:after {content:"";display:table} /* For modern browsers */
+.cf:after {clear:both}
+.cf {zoom:1} /* For IE 6/7 (trigger hasLayout) */

@@ -1,0 +1,59 @@
+<?php ?>
+<p><?php __('Search album covers', 'albumcoverfinder'); ?></p>
+
+<form>
+	<input type="text" name="query_artist" id="query_artist" placeholder="<?php _e('Artist', 'albumcoverfinder'); ?>"/>
+	<div id="wait"></div>
+	<input type="text" name="query_album" id="query_album" placeholder="<?php _e('Album', 'albumcoverfinder'); ?>"/>
+	<input id="findalbum" class="button" type="submit" value="<?php _e('Search', 'albumcoverfinder'); ?>">
+	<input class="button clear" type="button" value="<?php _e('Clear', 'albumcoverfinder'); ?>">
+</form>
+
+<div id="album_info">
+	<div id="cover"></div>
+	<a id="setattachment" class="button"><?php _e('Add as attachment', 'albumcoverfinder'); ?></a>
+	<a id="insertineditor" class="button"><?php _e('Insert in editor', 'albumcoverfinder'); ?></a>
+</div>
+
+<?php
+	# Count attachments
+	$count = count(get_children(array('post_parent'=>$post->ID)));
+
+	# Args for getting attachments
+		$args = array(
+		'post_type' => 'attachment',
+		'numberposts' => null,
+		'post_status' => null,
+		'post_parent' => $post->ID
+	);
+
+	# Get the attachments
+	$attachments = get_posts($args);
+
+	echo '<p>'.__('Attachments', 'albumcoverfinder').'<a href="#" class="countattachments insert-media add_media" data-editor="content">'.$count.' '.__('files attached', 'albumcoverfinder').'</a>';
+	echo '<a class="lfm_viewattachments button">'.__('View', 'albumcoverfinder').'</a></p>';
+	echo '<div class="lfm_attachments">';
+
+	# Show attachments if it exists any
+	if ($attachments) :
+		foreach ($attachments as $attachment) :
+			$attachment_url = wp_get_attachment_image_src( $attachment->ID, 'thumbnail');
+			$display_attachment_url = $attachment_url[0];
+
+			echo '<div class="lfm_file cf">';
+				echo '<img data-lfm_fileid="'.$attachment->ID.'" src="'.$display_attachment_url.'">';
+					echo '<div class="lfm_text">';
+						echo '<a class="setpostthumbnail button" value="'.__('Set featured image', 'albumcoverfinder').'">'.__('Set featured image', 'albumcoverfinder').'</a>';
+						echo '<a href="#" class="lfm_detach_attachment">'.__('Remove attachment', 'albumcoverfinder').'</a>';
+					echo '</div>';
+			echo '</div>';
+		endforeach;
+	endif;
+
+	echo '</div>';
+?>
+
+<div id="pid"><?php echo get_the_ID(); ?></div>
+<div id="theimgurl"></div>
+
+<?php ?>
