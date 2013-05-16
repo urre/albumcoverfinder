@@ -5,8 +5,8 @@ This is a small WordPress plugin that helps you find album covers, quick and eas
 
 ## Features
 + Search album covers using the LastFM API
-+ Saves album cover art to Media library
-+ Set post attachments
++ Set post attachments, saves album cover art to media library
++ Set featured image
 + Insert album cover art into post editor
 
 ## Install
