@@ -23,3 +23,4 @@ Swedish translation files included!
 
 ### TODO
 + Nicer filenames when saving to media library
++ Cleanup some js and css
