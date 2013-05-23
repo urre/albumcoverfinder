@@ -10,7 +10,6 @@ input[type="text"] {
 	margin-bottom: 4px;
 }
 
-
 #album_info {
 	display: none;
 	width: 300px;
@@ -38,15 +37,14 @@ input[type="text"] {
 	right: 12px;
 }
 
-.lfm_attachments {
-	margin: 1em 0 1em 0;
-	display: none;
-
-}
-
 /**
  * Attachments
  */
+
+.lfm_attachments {
+	margin: 1em 0 1em 0;
+	display: none;
+}
 
 .lfm_file {
 }
