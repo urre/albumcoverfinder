@@ -7,29 +7,29 @@ Version: 0.1
 Author: Urban Sanden
 Author URI: http://urre.me
 Author Email: hej@urre.me
-License: GPL2
+License: GPL
 */
 
 class AlbumCoverFinder {
 
 function __construct() {
 
-    // Load plugin text domain
+    # Load plugin text domain
     add_action( 'init', array( $this, 'plugin_textdomain' ) );
 
-    // Register admin styles and scripts
+    # Register admin styles and scripts
     add_action( 'admin_print_styles', array( $this, 'register_admin_styles' ) );
     add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
 
-    // Register site styles and scripts
+    # Register site styles and scripts
     add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_styles' ) );
     add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
 
-    // Ajax functions
+    # Ajax functions
     add_action('wp_ajax_and_action', array( $this, 'xhr') );
     add_action('wp_ajax_nopriv_and_action', array( $this, 'xhr') );
 
-    // Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
+    # Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
     register_activation_hook( __FILE__, array( $this, 'activate' ) );
     register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
     register_uninstall_hook( __FILE__, array( $this, 'uninstall' ) );
@@ -69,13 +69,13 @@ public function register_admin_styles() {
 
 public function register_admin_scripts() {
 
-    // Enqueue script
+    # Enqueue script
     wp_enqueue_script( 'albumcoverfinder-admin-script', plugins_url( 'albumcoverfinder/js/admin.js' ), array('jquery') );
 
-    // Pass built in ajaxurl for use in the javascript
+    # Pass built in ajaxurl for use in the javascript
     wp_localize_script( 'albumcoverfinder-admin-script', 'albumcoverfinder', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ), 'bajs' => admin_url('media-upload.php') ) );
 
-    // Translatable javascript strings
+    # Translatable javascript strings
     wp_localize_script( 'albumcoverfinder-admin-script', 'prefix_object_name', array(
         'view' => __( 'View', 'albumcoverfinder' ),
         'hide' => __( 'Hide', 'albumcoverfinder' ),
