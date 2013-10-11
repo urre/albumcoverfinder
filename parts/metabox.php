@@ -5,6 +5,10 @@
 	<input type="text" name="query_artist" id="query_artist" placeholder="<?php _e('Artist', 'albumcoverfinder'); ?>"/>
 	<div id="wait"></div>
 	<input type="text" name="query_album" id="query_album" placeholder="<?php _e('Album', 'albumcoverfinder'); ?>"/>
+	<div class="sizes">
+		<span>Large</span>
+		<input type="range" name="points" min="5" max="15" step="5" value="15">
+	</div>
 	<input id="findalbum" class="button" type="submit" value="<?php _e('Search', 'albumcoverfinder'); ?>">
 	<input class="button clear" type="button" value="<?php _e('Clear', 'albumcoverfinder'); ?>">
 </form>

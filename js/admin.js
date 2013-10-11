@@ -2,6 +2,19 @@
 	"use strict";
 	$(function () {
 
+		$("input[type='range']").change(function() {
+			var el = $(this);
+			var size = el.prev();
+
+			if(el.val() == 5) {
+				size.html('Small');
+			} else if(el.val() == 10) {
+				size.html('Medium');
+			} else if(el.val() == 15) {
+				size.html('Large');
+			}
+		});
+
 		// Disble clear button at first
 		$('.clear').attr("disabled", true);
 
@@ -74,10 +87,11 @@
 			$('#findalbum').val(prefix_object_name.searching);
 
 			var artist = $('#query_artist').val(),
-			album      = $('#query_album').val();
+			album      = $('#query_album').val(),
+			size = $("input[type='range']").val();
 
 			// Query Last FM
-			findCover(artist, album);
+			findCover(artist, album, size);
 			e.preventDefault();
 		});
 
@@ -148,7 +162,7 @@
 		});
 
 		// Search Last FM API
-		function findCover(artist, album) {
+		function findCover(artist, album, thesize) {
 
 			// Variables to send via Ajax
 			var encoded_artist = encodeURIComponent(artist),
@@ -165,8 +179,16 @@
 					// console.log(data.message);
 					$('#wait').hide();
 					if(data.message !== 'Artist not found' && data.message !== 'Album not found') {
-						html += "<img src="+data.album.image[4]["#text"]+">";
-						$('#theimgurl').text(data.album.image[4]["#text"]);
+						if(thesize == 15) {
+							html += "<img src="+data.album.image[4]["#text"]+">";
+							$('#theimgurl').text(data.album.image[4]["#text"]);
+						} else if(thesize == 10) {
+							html += "<img src="+data.album.image[3]["#text"]+">";
+							$('#theimgurl').text(data.album.image[3]["#text"]);
+						} else if(thesize == 10) {
+							html += "<img src="+data.album.image[2]["#text"]+">";
+							$('#theimgurl').text(data.album.image[2]["#text"]);
+						}
 						$('#setattachment').attr("disabled", false);
 						$('#insertineditor').attr("disabled", false);
 						$('#setposthtumbnail').attr("disabled", false);

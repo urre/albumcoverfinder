@@ -30,25 +30,25 @@ function __construct() {
     add_action('wp_ajax_nopriv_and_action', array( $this, 'xhr') );
 
     # Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
-    register_activation_hook( __FILE__, array( $this, 'activate' ) );
-    register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
-    register_uninstall_hook( __FILE__, array( $this, 'uninstall' ) );
+    // register_activation_hook( __FILE__, array( $this, 'activate' ) );
+    // register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
+    // register_uninstall_hook( __FILE__, array( $this, 'uninstall' ) );
 
     add_action( 'init', array( $this, 'add_search_boxes' ) );
 
 }
 
-public function activate( $network_wide ) {
+// public function activate( $network_wide ) {
 
-}
+// }
 
-public function deactivate( $network_wide ) {
+// public function deactivate( $network_wide ) {
 
-}
+// }
 
-public function uninstall( $network_wide ) {
+// public function uninstall( $network_wide ) {
 
-}
+// }
 
 
 public function plugin_textdomain() {
