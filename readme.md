@@ -18,9 +18,5 @@ This is a small WordPress plugin that helps you find album covers, quick and eas
 ## Uninstall
 1. Deactivate plugin
 
-## Notes
+## Translation
 Swedish translation files included!
-
-### TODO
-+ Nicer filenames when saving to media library
-+ Cleanup some js and css
