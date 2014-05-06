@@ -3,7 +3,7 @@
 Using WordPress? Run a music blog/review site/music related site? Need album covers?
 This is a small WordPress plugin that helps you find album covers, quick and easy.
 
-![Screenshot](https://dl.dropboxusercontent.com/u/1162759/pluginimg.png)
+![Screenshot](https://raw.github.com/urre/albumcoverfinder/blob/master/screenshot-1.png)
 
 ## Features
 + Search album covers using the LastFM API
