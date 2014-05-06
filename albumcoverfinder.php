@@ -23,7 +23,7 @@ function __construct() {
 
     # Register site styles and scripts
     add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_styles' ) );
-    add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
+    #add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
 
     # Ajax functions
     add_action('wp_ajax_and_action', array( $this, 'xhr') );
@@ -160,7 +160,10 @@ public function xhr()  {
 }
 
 public function register_plugin_styles() {
-    wp_enqueue_style( 'albumcoverfinder-plugin-styles', plugins_url( 'albumcoverfinder/css/display.css' ) );
+    if (is_admin()) {
+        wp_enqueue_style( 'albumcoverfinder-plugin-styles', plugins_url( 'albumcoverfinder/css/admin.css' ) );
+    }
+
 }
 
 function add_search_boxes() {
