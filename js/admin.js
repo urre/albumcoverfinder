@@ -52,7 +52,7 @@
 
 					// Build image for attaching to DOM
 					var chosen_image = '<img width="100" height="100" src="'+data+'" class="attachment-post-thumbnail" style="display:block;">';
-					var chosen_image_with_link = '<a title="Change featured image" href="'+albumcoverfinder.bajs+'?post_id='+post_id+'&amp;type=image&amp;TB_iframe=1&amp;width=640&amp;height=375" id="set-post-thumbnail" class="thickbox">'+chosen_image+'</a>';
+					var chosen_image_with_link = '<a title="Change featured image" href="'+albumcoverfinder.uploadurl+'?post_id='+post_id+'&amp;type=image&amp;TB_iframe=1&amp;width=640&amp;height=375" id="set-post-thumbnail" class="thickbox">'+chosen_image+'</a>';
 					$('#postimagediv .inside').prepend(chosen_image_with_link);
 					$('#postimagediv .inside p').hide();
 
@@ -161,13 +161,18 @@
 
 		});
 
-		// Search Last FM API
+		/**
+		 * Search Last FM API
+		 * API account is under the non-commercial license
+		 * http://www.lastfm.se/api/tos
+		 */
+
 		function findCover(artist, album, thesize) {
 
 			// Variables to send via Ajax
 			var encoded_artist = encodeURIComponent(artist),
 			encoded_album      = encodeURIComponent(album),
-			acf_url         = 'http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=853b3e9d9f565707e7edd6f878c3d587&artist='+encoded_artist+'&album='+encoded_album+'&format=json',
+			acf_url            = 'http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=853b3e9d9f565707e7edd6f878c3d587&artist='+encoded_artist+'&album='+encoded_album+'&format=json',
 			html               = '';
 
 			clearSearch();
