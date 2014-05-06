@@ -1,14 +1,31 @@
 <?php
 /*
 Plugin Name: Album cover finder
-Plugin URI: http://urre.me
-Description: A simple plugin for finding album cover art. Uses the LastFM open API. You can set attachment, featured image and insert in post editor
+Plugin URI: labs.urre.me/albumcoverfinder/
+Description: A simple plugin for finding album cover art via the LastFM API. You can set attachment, featured image and insert cover in post editor
 Version: 0.1
 Author: Urban Sanden
 Author URI: http://urre.me
 Author Email: hej@urre.me
-License: GPL
+License: GPL2
 */
+
+/*  Copyright 2104 Urban Sanden (email: hej@urre.me)
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License, version 2, as
+    published by the Free Software Foundation.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
 
 class AlbumCoverFinder {
 
@@ -28,54 +45,44 @@ function __construct() {
     # Ajax functions
     add_action('wp_ajax_and_action', array( $this, 'xhr') );
     add_action('wp_ajax_nopriv_and_action', array( $this, 'xhr') );
-
-    # Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
-    // register_activation_hook( __FILE__, array( $this, 'activate' ) );
-    // register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
-    // register_uninstall_hook( __FILE__, array( $this, 'uninstall' ) );
-
     add_action( 'init', array( $this, 'add_search_boxes' ) );
 
 }
 
-// public function activate( $network_wide ) {
-
-// }
-
-// public function deactivate( $network_wide ) {
-
-// }
-
-// public function uninstall( $network_wide ) {
-
-// }
-
-
+/**
+ * Text domain for translations
+ * @return [type] [description]
+ */
 public function plugin_textdomain() {
-
     $domain = 'albumcoverfinder';
     $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
     load_textdomain( $domain, WP_LANG_DIR.'/'.$domain.'/'.$domain.'-'.$locale.'.mo' );
     load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
-
 }
 
+/**
+ * Admin CSS
+ * @return [type] [description]
+ */
 public function register_admin_styles() {
-
-    wp_enqueue_style( 'albumcoverfinder-admin-styles', plugins_url( 'albumcoverfinder/css/admin.css' ) );
-
+    if (is_admin()) {
+        wp_enqueue_style( 'albumcoverfinder-plugin-styles', plugins_url( 'albumcoverfinder/css/admin.css' ) );
+    }
 }
 
-
+/**
+ * Enque and localize javascript
+ * @return [type] [description]
+ */
 public function register_admin_scripts() {
 
     # Enqueue script
     wp_enqueue_script( 'albumcoverfinder-admin-script', plugins_url( 'albumcoverfinder/js/admin.js' ), array('jquery') );
 
     # Pass built in ajaxurl for use in the javascript
-    wp_localize_script( 'albumcoverfinder-admin-script', 'albumcoverfinder', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ), 'bajs' => admin_url('media-upload.php') ) );
+    wp_localize_script( 'albumcoverfinder-admin-script', 'albumcoverfinder', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ), 'uploadurl' => admin_url('media-upload.php') ) );
 
-    # Translatable javascript strings
+    # Localized strings
     wp_localize_script( 'albumcoverfinder-admin-script', 'prefix_object_name', array(
         'view' => __( 'View', 'albumcoverfinder' ),
         'hide' => __( 'Hide', 'albumcoverfinder' ),
@@ -89,9 +96,13 @@ public function register_admin_scripts() {
         'savenow' => __('Save post to change/remove featured image', 'albumcoverfinder')
 
         ));
-
 }
 
+/**
+ * Get attachment id from src
+ * @param  [type] $image_src [description]
+ * @return [type]            [description]
+ */
 public function get_attachment_id_from_src ($image_src) {
     global $wpdb;
     $query = "SELECT ID FROM {$wpdb->posts} WHERE guid='$image_src'";
@@ -99,6 +110,10 @@ public function get_attachment_id_from_src ($image_src) {
     return $id;
 }
 
+/**
+ * Handle AJAX requests
+ * @return [type] [description]
+ */
 public function xhr()  {
 
     if(isset($_POST['the_attachment']) && !empty($_POST['the_attachment']) && isset($_POST['the_post']) && !empty($_POST['the_post'])) :
@@ -159,13 +174,9 @@ public function xhr()  {
 
 }
 
-public function register_plugin_styles() {
-    if (is_admin()) {
-        wp_enqueue_style( 'albumcoverfinder-plugin-styles', plugins_url( 'albumcoverfinder/css/admin.css' ) );
-    }
-
-}
-
+/**
+ * Add meta boxes
+ */
 function add_search_boxes() {
 
     add_action( 'add_meta_boxes', 'albumcoverfinder_add_custom_box' );
