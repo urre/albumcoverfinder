@@ -17,19 +17,17 @@ Search for album covers, and use image as featured image, attachment or in post 
 
 == Installation ==
 
-1. Upload the `nice-search` folder to your `/wp-content/plugins/` directory
+1. Upload the `albumcoverfinder` folder to your `/wp-content/plugins/` directory
 2. Activate the "Album Cover Finder" plugin in your WordPress administration interface
 3. Done!
 
 == Feedback ==
 
-Like the plugin? Dislike it? Got bugs or feature request?
-Great! Contact me at hej@urre.me or at https://twitter.com/urre and hopefully
-I can do something about it.
+Contact me at hej@urre.me or at https://twitter.com/urre and hopefully I can do something about it.
 
 == Screenshots ==
 
-1. A search for Miles Davis - Kind Of Blue. Add image as featured image, attachment or to post editor.
+1. A search for Miles Davis - Kind Of Blue.
 
 == Frequently Asked Questions ==
 
