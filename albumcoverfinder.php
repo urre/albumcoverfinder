@@ -38,10 +38,6 @@ function __construct() {
     add_action( 'admin_print_styles', array( $this, 'register_admin_styles' ) );
     add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
 
-    # Register site styles and scripts
-    add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_styles' ) );
-    #add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
-
     # Ajax functions
     add_action('wp_ajax_and_action', array( $this, 'xhr') );
     add_action('wp_ajax_nopriv_and_action', array( $this, 'xhr') );
