@@ -66,7 +66,7 @@ public function plugin_textdomain() {
  */
 public function register_admin_styles() {
     if (is_admin()) {
-        wp_enqueue_style( 'albumcoverfinder-plugin-styles', plugins_url( 'albumcoverfinder/css/admin.css' ) );
+        wp_enqueue_style( 'albumcoverfinder-plugin-styles', plugins_url( 'album-cover-finder/css/admin.css' ) );
     }
 }
 
@@ -77,7 +77,7 @@ public function register_admin_styles() {
 public function register_admin_scripts() {
 
     # Enqueue script
-    wp_enqueue_script( 'albumcoverfinder-admin-script', plugins_url( 'albumcoverfinder/js/admin.js' ), array('jquery') );
+    wp_enqueue_script( 'albumcoverfinder-admin-script', plugins_url( 'album-cover-finder/js/admin.js' ), array('jquery') );
 
     # Pass built in ajaxurl for use in the javascript
     wp_localize_script( 'albumcoverfinder-admin-script', 'albumcoverfinder', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ), 'uploadurl' => admin_url('media-upload.php') ) );

@@ -10,20 +10,24 @@ Search for album covers, and use image as featured image, attachment or in post 
 
 == Description ==
 
-1. Search for album covers
+1. Search for album covers via [Last.fm API](www.lastfm.se/api)
 2. Set post attachments, the plugin saves album cover art in media library
 3. Set album cover art as featured image
 4. Insert album cover art into post editor
 
 == Installation ==
 
-1. Upload the `albumcoverfinder` folder to your `/wp-content/plugins/` directory
+1. Upload the `album-cover-finder` folder to your `/wp-content/plugins/` directory
 2. Activate the "Album Cover Finder" plugin in your WordPress administration interface
 3. Done!
 
 == Feedback ==
 
 Contact me at hej@urre.me or at https://twitter.com/urre and hopefully I can do something about it.
+
+[Check out the project page](http://labs.urre.me/albumcoverfinder)
+
+[Github](https://github.com/urre/albumcoverfinder)
 
 == Screenshots ==
 
