@@ -21,13 +21,14 @@ Search for album covers, and use image as featured image, attachment or in post 
 2. Activate the "Album Cover Finder" plugin in your WordPress administration interface
 3. Done!
 
+[Check out the project page](http://labs.urre.me/albumcoverfinder)
+
+[Github](https://github.com/urre/albumcoverfinder)
+
 == Feedback ==
 
 Contact me at hej@urre.me or at https://twitter.com/urre and hopefully I can do something about it.
 
-[Check out the project page](http://labs.urre.me/albumcoverfinder)
-
-[Github](https://github.com/urre/albumcoverfinder)
 
 == Screenshots ==
 
