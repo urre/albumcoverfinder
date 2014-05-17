@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WordPress Plugin Boilerplate\n"
+"Project-Id-Version: Album Cover Finder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-11 19:34+0100\n"
-"PO-Revision-Date: 2013-05-11 19:34+0100\n"
-"Last-Translator: Urban Sandén <hej@urre.me>\n"
-"Language-Team: Tom McFarlin <tom@tommcfarlin.com>\n"
+"POT-Creation-Date: 2014-05-17 11:46+0100\n"
+"PO-Revision-Date: 2014-05-17 22:21+0100\n"
+"Last-Translator: Urban Sanden <hej@urre.me>\n"
+"Language-Team: Urban Sanden <hej@urre.me>\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,50 +13,50 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.6.2\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../albumcoverfinder.php:80 ../parts/metabox.php:34
+#: ../albumcoverfinder.php:83 ../parts/metabox.php:38
 msgid "View"
 msgstr "Visa"
 
-#: ../albumcoverfinder.php:81
+#: ../albumcoverfinder.php:84
 msgid "Hide"
 msgstr "Göm"
 
-#: ../albumcoverfinder.php:82 ../parts/metabox.php:46
+#: ../albumcoverfinder.php:85 ../parts/metabox.php:50
 msgid "Set featured image"
 msgstr "Ange utvald bild"
 
-#: ../albumcoverfinder.php:83 ../parts/metabox.php:47
+#: ../albumcoverfinder.php:86 ../parts/metabox.php:51
 msgid "Remove attachment"
 msgstr "Ta bort bilaga"
 
-#: ../albumcoverfinder.php:84 ../parts/metabox.php:33
+#: ../albumcoverfinder.php:87 ../parts/metabox.php:37
 msgid "files attached"
 msgstr "bilagor"
 
-#: ../albumcoverfinder.php:85
+#: ../albumcoverfinder.php:88
 msgid "Searching..."
 msgstr "Söker…"
 
-#: ../albumcoverfinder.php:86 ../parts/metabox.php:8
+#: ../albumcoverfinder.php:89 ../parts/metabox.php:12
 msgid "Search"
 msgstr "Sök"
 
-#: ../albumcoverfinder.php:87
+#: ../albumcoverfinder.php:90
 msgid "No album cover(s) were found"
 msgstr "Inga omslag hittades"
 
-#: ../albumcoverfinder.php:88
+#: ../albumcoverfinder.php:91
 msgid "Try again"
 msgstr "Försök igen"
 
-#: ../albumcoverfinder.php:89
+#: ../albumcoverfinder.php:92
 msgid "Save post to change/remove featured image"
 msgstr "Spara för att ändra/ta bort utvald bild"
 
-#: ../albumcoverfinder.php:173
+#: ../albumcoverfinder.php:187
 msgid "Album cover finder"
 msgstr "Sök skivomslag"
 
@@ -72,18 +72,18 @@ msgstr "Artist"
 msgid "Album"
 msgstr "Album"
 
-#: ../parts/metabox.php:9
+#: ../parts/metabox.php:13
 msgid "Clear"
 msgstr "Rensa"
 
-#: ../parts/metabox.php:14
+#: ../parts/metabox.php:18
 msgid "Add as attachment"
 msgstr "Lägg som bilaga"
 
-#: ../parts/metabox.php:15
+#: ../parts/metabox.php:19
 msgid "Insert in editor"
 msgstr "Infoga i innehåll"
 
-#: ../parts/metabox.php:33
+#: ../parts/metabox.php:37
 msgid "Attachments"
 msgstr "Bilagor"
