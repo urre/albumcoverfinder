@@ -6,13 +6,20 @@
 			var el = $(this);
 			var size = el.prev();
 
-			if(el.val() == 5) {
-				size.html('Small');
-			} else if(el.val() == 10) {
-				size.html('Medium');
-			} else if(el.val() == 15) {
-				size.html('Large');
+			switch (el.val()) {
+				case '5':
+					size.html('Small');
+					break;
+				case '10':
+					size.html('Medium');
+					break;
+				case '15':
+					size.html('Large');
+					break;
+				default:
+					size.html('Large');
 			}
+
 		});
 
 		// Disble clear button at first
