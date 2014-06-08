@@ -75,23 +75,22 @@ public function register_admin_scripts() {
     # Enqueue script
     wp_enqueue_script( 'albumcoverfinder-admin-script', plugins_url( 'album-cover-finder/js/admin.js' ), array('jquery') );
 
-    # Pass built in ajaxurl for use in the javascript
-    wp_localize_script( 'albumcoverfinder-admin-script', 'albumcoverfinder', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ), 'uploadurl' => admin_url('media-upload.php') ) );
-
-    # Localized strings
-    wp_localize_script( 'albumcoverfinder-admin-script', 'prefix_object_name', array(
-        'view' => __( 'View', 'albumcoverfinder' ),
-        'hide' => __( 'Hide', 'albumcoverfinder' ),
-        'set' => __('Set featured image', 'albumcoverfinder'),
-        'remove' => __('Remove attachment', 'albumcoverfinder'),
-        'files' => __('files attached', 'albumcoverfinder'),
+    $js_data = array(
+        'view'      => __( 'View', 'albumcoverfinder' ),
+        'hide'      => __( 'Hide', 'albumcoverfinder' ),
+        'set'       => __('Set featured image', 'albumcoverfinder'),
+        'remove'    => __('Remove attachment', 'albumcoverfinder'),
+        'files'     => __('files attached', 'albumcoverfinder'),
         'searching' => __('Searching...', 'albumcoverfinder'),
-        'search' => __('Search', 'albumcoverfinder'),
-        'nofound' => __('No album cover(s) were found', 'albumcoverfinder'),
-        'tryagain' => __('Try again', 'albumcoverfinder'),
-        'savenow' => __('Save post to change/remove featured image', 'albumcoverfinder')
+        'search'    => __('Search', 'albumcoverfinder'),
+        'nofound'   => __('No album cover(s) were found', 'albumcoverfinder'),
+        'tryagain'  => __('Try again', 'albumcoverfinder'),
+        'savenow'   => __('Save post to change/remove featured image', 'albumcoverfinder'),
+        'ajax_url'  => admin_url( 'admin-ajax.php' )
+    );
 
-        ));
+    wp_localize_script('albumcoverfinder-admin-script', 'AlbumCoverFinderParams', $js_data);
+
 }
 
 /**
