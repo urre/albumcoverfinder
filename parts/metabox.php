@@ -35,8 +35,8 @@
 	$attachments = get_posts($args);
 
 	echo '<p>'.__('Attachments', 'albumcoverfinder').'<a href="#" class="countattachments insert-media add_media" data-editor="content">'.$count.' '.__('files attached', 'albumcoverfinder').'</a>';
-	echo '<a class="lfm_viewattachments button">'.__('View', 'albumcoverfinder').'</a></p>';
-	echo '<div class="lfm_attachments">';
+	echo '<a class="acoverfind_viewattachments button">'.__('View', 'albumcoverfinder').'</a></p>';
+	echo '<div class="acoverfind_attachments">';
 
 	# Show attachments if it exists any
 	if ($attachments) :
@@ -44,11 +44,12 @@
 			$attachment_url = wp_get_attachment_image_src( $attachment->ID, 'thumbnail');
 			$display_attachment_url = $attachment_url[0];
 
-			echo '<div class="lfm_file cf">';
-				echo '<img data-lfm_fileid="'.$attachment->ID.'" src="'.$display_attachment_url.'">';
-					echo '<div class="lfm_text">';
+			echo '<div class="acoverfind_file cf">';
+				echo '<img data-acoverfind_fileid="'.$attachment->ID.'" src="'.$display_attachment_url.'">';
+					echo '<div class="acoverfind_text">';
 						echo '<a class="setpostthumbnail button" value="'.__('Set featured image', 'albumcoverfinder').'">'.__('Set featured image', 'albumcoverfinder').'</a>';
-						echo '<a href="#" class="lfm_detach_attachment">'.__('Remove attachment', 'albumcoverfinder').'</a>';
+						echo '<a href="#" class="acoverfind_detach_attachment">'.__('Remove attachment', 'albumcoverfinder').'</a>';
+						echo '<a href="#" class="acoverfind_insert_in_editor">'.__('Insert in editor', 'albumcoverfinder').'</a>';
 					echo '</div>';
 			echo '</div>';
 		endforeach;

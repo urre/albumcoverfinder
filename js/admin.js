@@ -41,7 +41,7 @@
 			$('#postimagediv').find('img').remove();
 
 			// Variables to send via Ajax
-			var attachment_id = $(this).parent().parent().find('img').data('lfm_fileid'),
+			var attachment_id = $(this).parent().parent().find('img').data('acoverfind_fileid'),
 			post_id           = $('#pid').text();
 
 			$.post(
@@ -116,31 +116,49 @@
 					postid: pid,
 				},	function(data) {
 
-						$('.lfm_attachments').prepend('<div class="lfm_file cf"><img data-lfm_fileid="'+pid+'" src="'+img_url+'"><div class="lfm_text"><a class="setpostthumbnail button" value="'+AlbumCoverFinderParams.set+'">'+AlbumCoverFinderParams.set+'</a><a href="#" class="lfm_detach_attachment">'+AlbumCoverFinderParams.remove+'</a></div></div>');
+						$('.acoverfind_attachments').prepend('<div class="acoverfind_file cf"><img data-acoverfind_fileid="'+pid+'" src="'+img_url+'"><div class="acoverfind_text"><a class="setpostthumbnail button" value="'+AlbumCoverFinderParams.savefirst+'" disabled="disabled">'+AlbumCoverFinderParams.savefirst+'</a><a href="#" class="acoverfind_detach_attachment">'+AlbumCoverFinderParams.remove+'</a></div></div>');
 						$('#wait').hide();
 				});
 
 		});
 
-		$('.lfm_viewattachments').on('click', function(e) {
+		$('.acoverfind_viewattachments').on('click', function(e) {
 
 			// View attached attachments
 			if($(this).text() === AlbumCoverFinderParams.view) {
-				$('.lfm_attachments').show();
+				$('.acoverfind_attachments').show();
 				$(this).text(AlbumCoverFinderParams.hide);
 			} else {
-				$('.lfm_attachments').hide();
+				$('.acoverfind_attachments').hide();
 				$(this).text(AlbumCoverFinderParams.view);
 			}
 			e.preventDefault();
 
 		});
 
+		$(document).on( 'click', '.acoverfind_insert_in_editor', function (e) {
 
-		$(document).on( 'click', '.lfm_detach_attachment', function (e) {
+			// Get image url
+			var image_url = $(this).parent().parent().find('img').attr('src').replace('-150x150','');
+			console.log(image_url);
+			var img_tag    = '<img src="'+(image_url)+'">';
+
+			// Switch to HTML-editor
+			$('a.switch-html').trigger('click');
+			// Append to WYSIWYG-text area
+			$('.wp-editor-area').val($('.wp-editor-area').val()+img_tag);
+			// Switch back to Tiny MCE
+			$('a.switch-tmce').trigger('click');
+
+			// $(this).attr("disabled", true);
+			e.preventDefault();
+
+		});
+
+		$(document).on( 'click', '.acoverfind_detach_attachment', function (e) {
 
 			// Get attachment id from data attribute
-			var attachment_id = $(this).parent().parent().find('img').data('lfm_fileid');
+			var attachment_id = $(this).parent().parent().find('img').data('acoverfind_fileid');
 
 			// Remove in DOM
 			$(this).parent().parent().slideUp( function() { $(this).remove(); });

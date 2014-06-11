@@ -61,30 +61,30 @@ input[type="range"] {
  * Attachments
  */
 
-.lfm_attachments {
+.acoverfind_attachments {
 	margin: 1em 0 1em 0;
 	display: none;
 }
 
-.lfm_file {
+.acoverfind_file {
 }
 
-.lfm_file img {
+.acoverfind_file img {
 	float: left;
 	margin: 0 10px 10px 10px;
 	width: 82px;
 	height: 82px;
 }
 
-.lfm_text {
+.acoverfind_text {
 	float: left;
 }
 
-.lfm_detach_attachment {
+.acoverfind_detach_attachment,
+.acoverfind_insert_in_editor {
 	display: block;
 	margin: 10px 0 0 4px;
 }
-
 
 .countattachments {
 	background:none;
@@ -95,7 +95,7 @@ input[type="range"] {
 	margin-left: 10px;
 }
 
-.lfm_viewattachments.button {
+.acoverfind_viewattachments.button {
 	display: inline-block;
 	margin-left: 20px;
 }
