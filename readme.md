@@ -29,3 +29,8 @@ This plugin is available in the following languages:
 
 + English
 + Swedish
++ Serbian
+
+## Changelog
+
+[View changelog](http://wordpress.org/plugins/album-cover-finder/changelog/)

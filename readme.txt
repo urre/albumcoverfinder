@@ -3,8 +3,8 @@ Contributors: urre
 Donate link: http://urre.me/donate
 Tags: music, albums, covers
 Requires at least: 3.0
-Tested up to: 3.9
-Stable tag: 0.4
+Tested up to: 3.9.1
+Stable tag: 0.4.1
 
 Search for album covers, and use image as featured image, attachment or in post editor.
 
@@ -39,8 +39,12 @@ This plugin is available in the following languages:
 
 * English
 * Swedish
++ Serbian
 
 == Changelog ==
+
+= 0.4.1 =
+* Added Serbian translation. Thanks to [Ogi Djuraskovic/First Site Guide](http://firstsiteguide.com/).
 
 = 0.4 =
 * Insert cover in post editor directly in attachment list
