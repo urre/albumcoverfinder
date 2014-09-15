@@ -1,17 +1,17 @@
 === Album Cover Finder ===
 Contributors: urre
 Donate link: http://urre.me/donate
-Tags: music, albums, covers
+Tags: music, albums, covers, album covers, artist, sleeves
 Requires at least: 3.0
-Tested up to: 3.9.1
-Stable tag: 0.4.1
+Tested up to: 4.0
+Stable tag: 0.4.2
 
 Search for album covers, and use image as featured image, attachment or in post editor.
 
 == Description ==
 
 1. Search for album covers via [Last.fm API](www.lastfm.se/api)
-2. Set post attachments, the plugin saves album cover art in media library
+2. Set post attachments, saves album cover art in your media library
 3. Set album cover art as featured image
 4. Insert album cover art into post editor
 
@@ -42,6 +42,9 @@ This plugin is available in the following languages:
 + Serbian
 
 == Changelog ==
+
+= 0.4.2 =
+Ready for Wordpress 4.0. Fixed a small css bug resulting in wrong line height for title input field. Fixed with correct encapsulation. Minor markup change for form tag using ARIA role. More semantic use of input types, using search attribute.
 
 = 0.4.1 =
 * Added Serbian translation. Thanks to [Ogi Djuraskovic/First Site Guide](http://firstsiteguide.com/).

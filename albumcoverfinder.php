@@ -3,14 +3,14 @@
 Plugin Name: Album cover finder
 Plugin URI: labs.urre.me/albumcoverfinder/
 Description: A simple plugin for finding album cover art via the LastFM API. You can set attachment, featured image and insert cover in post editor
-Version: 0.4.1
+Version: 0.4.2
 Author: Urban Sanden
 Author URI: http://urre.me
 Author Email: hej@urre.me
 License: GPL2
 */
 
-/*  Copyright 2104 Urban Sanden (email: hej@urre.me)
+/*  Copyright 2014 Urban Sanden (email: hej@urre.me)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -47,7 +47,6 @@ function __construct() {
 
 /**
  * Text domain for translations
- * @return [type] [description]
  */
 public function plugin_textdomain() {
     $domain = 'albumcoverfinder';
@@ -58,7 +57,6 @@ public function plugin_textdomain() {
 
 /**
  * Admin CSS
- * @return [type] [description]
  */
 public function register_admin_styles() {
     if (is_admin()) {
@@ -67,8 +65,7 @@ public function register_admin_styles() {
 }
 
 /**
- * Enque and localize javascript
- * @return [type] [description]
+ * Enqueue and localize javascript
  */
 public function register_admin_scripts() {
 
@@ -91,6 +88,7 @@ public function register_admin_scripts() {
         'uploadurl' => admin_url('media-upload.php')
     );
 
+    # Localize script
     wp_localize_script('albumcoverfinder-admin-script', 'AlbumCoverFinderParams', $js_data);
 
 }
