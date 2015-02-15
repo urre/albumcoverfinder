@@ -1,9 +1,9 @@
 <p><?php __('Search album covers', 'albumcoverfinder'); ?></p>
 
-<form role="search">
-	<input type="search" name="query_artist" id="query_artist" results="5" placeholder="<?php _e('Artist', 'albumcoverfinder'); ?>"/>
+<form role="search" autocomplete="on">
+	<input type="search" name="query_artist" id="query_artist" autocomplete="on" results="5" placeholder="<?php _e('Artist', 'albumcoverfinder'); ?>"/>
 	<div id="wait"></div>
-	<input type="search" name="query_album" id="query_album" results="5" placeholder="<?php _e('Album', 'albumcoverfinder'); ?>"/>
+	<input type="search" name="query_album" id="query_album" autocomplete="on" results="5" placeholder="<?php _e('Album', 'albumcoverfinder'); ?>"/>
 	<div class="sizes">
 		<span>Large</span>
 		<input type="range" name="points" min="5" max="15" step="5" value="15">
