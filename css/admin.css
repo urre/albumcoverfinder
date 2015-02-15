@@ -84,11 +84,11 @@
 }
 
 #lastfm_searcher_sectionid .countattachments {
-	background:none;
-	border:none;
-	padding:none;
-	color:#21759b;
-	text-decoration:underline;
+	background: none;
+	border: none;
+	padding: none;
+	color: #21759b;
+	text-decoration: underline;
 	margin-left: 10px;
 }
 
@@ -113,8 +113,8 @@
 
  // Remove Webkit pseudo elements styling
  #lastfm_searcher_sectionid input {
- 	--webkit-appearance: none;
-}
+ 	-webkit-appearance: none;
+ }
 
 #lastfm_searcher_sectionid input[type="search"]::-webkit-search-decoration,
 #lastfm_searcher_sectionid input[type="search"]::-webkit-search-cancel-button,
