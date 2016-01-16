@@ -2,8 +2,8 @@
 Contributors: urre
 Tags: music, albums, covers, album covers, artist, sleeves
 Requires at least: 3.0
-Tested up to: 4.2.2
-Stable tag: 0.4.2
+Tested up to: 4.4.1
+Stable tag: 0.5.0
 
 Search for album covers, and use image as featured image, attachment or in post editor.
 
@@ -27,7 +27,6 @@ Search for album covers, and use image as featured image, attachment or in post 
 
 Contact me at hej@urre.me or at https://twitter.com/urre and hopefully I can do something about it.
 
-
 == Screenshots ==
 
 1. A search for Miles Davis - Kind Of Blue.
@@ -41,6 +40,9 @@ This plugin is available in the following languages:
 + Serbian
 
 == Changelog ==
+
+= 0.5.0 =
+Fixes for WordPress 4.4
 
 = 0.4.2 =
 Ready for Wordpress 4.0. Fixed a small css bug resulting in wrong line height for title input field. Fixed with correct encapsulation. Minor markup change for form tag using ARIA role. More semantic use of input types, using search attribute.
