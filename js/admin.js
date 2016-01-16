@@ -1,7 +1,10 @@
 (function ($) {
+	
 	"use strict";
+
 	$(function () {
 
+		// Update range slider
 		$("input[type='range']").change(function() {
 			var el = $(this);
 			var size = el.prev();
@@ -70,13 +73,12 @@
 			img_tag    = '<img src="'+insert_url+'">';
 
 			// Switch to HTML-editor
-			$('a.switch-html').trigger('click');
+			jQuery('#content-html').trigger('click');
 			// Append to WYSIWYG-text area
-			$('.wp-editor-area').val($('.wp-editor-area').val()+img_tag);
+			jQuery('.wp-editor-area').val($('.wp-editor-area').val()+img_tag);
 			// Switch back to Tiny MCE
-			$('a.switch-tmce').trigger('click');
+			jQuery('#content-tmce').trigger('click');
 
-			// $(this).attr("disabled", true);
 			e.preventDefault();
 
 		});
@@ -140,17 +142,15 @@
 
 			// Get image url
 			var image_url = $(this).parent().parent().find('img').attr('src').replace('-150x150','');
-			console.log(image_url);
 			var img_tag    = '<img src="'+(image_url)+'">';
 
 			// Switch to HTML-editor
-			$('a.switch-html').trigger('click');
+			jQuery('#content-html').trigger('click');
 			// Append to WYSIWYG-text area
-			$('.wp-editor-area').val($('.wp-editor-area').val()+img_tag);
+			jQuery('.wp-editor-area').val($('.wp-editor-area').val()+img_tag);
 			// Switch back to Tiny MCE
-			$('a.switch-tmce').trigger('click');
+			jQuery('#content-tmce').trigger('click');
 
-			// $(this).attr("disabled", true);
 			e.preventDefault();
 
 		});
