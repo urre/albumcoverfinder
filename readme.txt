@@ -1,8 +1,9 @@
 === Album Cover Finder ===
 Contributors: urre
+Donate link: https://www.paypal.me/urbansanden
 Tags: music, albums, covers, album covers, artist, sleeves
 Requires at least: 3.0
-Tested up to: 4.4.1
+Tested up to: 4.6.1
 Stable tag: 0.5.0
 
 Search for album covers, and use image as featured image, attachment or in post editor.
