@@ -15,7 +15,6 @@ Search for album covers, and use image as featured image, attachment or in post 
 3. Set album cover art as featured image
 4. Insert album cover art into post editor
 
-* [Project page](http://labs.urre.me/albumcoverfinder)
 * [Github](https://github.com/urre/albumcoverfinder)
 
 == Installation ==
