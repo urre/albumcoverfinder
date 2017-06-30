@@ -12,7 +12,7 @@ Tags: album, art, cover, lastfm, music, records
 License: GPL2
 */
 
-/*  Copyright 2016 Urban Sanden (email: hej@urre.me)
+/*  Copyright 2017 Urban Sanden (email: hej@urre.me)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
