@@ -3,8 +3,8 @@ Contributors: urre
 Donate link: https://www.paypal.me/urbansanden
 Tags: music, albums, covers, album covers, artist, sleeves
 Requires at least: 3.0
-Tested up to: 4.8.0
-Stable tag: 0.5.0
+Tested up to: 5.5.1
+Stable tag: 0.6.0
 
 Search for album covers, and use image as featured image, attachment or in post editor.
 
@@ -40,6 +40,9 @@ This plugin is available in the following languages:
 + Serbian
 
 == Changelog ==
+
+= 0.6.0 =
+The plugin now works in WordPress 5.5.1
 
 = 0.5.0 =
 Fixes for WordPress 4.4
