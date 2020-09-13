@@ -1,5 +1,5 @@
 (function ($) {
-	
+
 	"use strict";
 
 	$(function () {
@@ -54,11 +54,7 @@
 					the_post: post_id,
 				},	function(data) {
 
-					// Build image for attaching to DOM
-					var chosen_image = '<img width="100" height="100" src="'+data+'" class="attachment-post-thumbnail" style="display:block;">';
-					var chosen_image_with_link = '<a title="Change featured image" href="'+AlbumCoverFinderParams.uploadurl+'?post_id='+post_id+'&amp;type=image&amp;TB_iframe=1&amp;width=640&amp;height=375" id="set-post-thumbnail" class="thickbox">'+chosen_image+'</a>';
-					$('#postimagediv .inside').prepend(chosen_image_with_link);
-					$('#postimagediv .inside p').hide();
+					jQuery(".components-button.editor-post-featured-image__toggle" ).html('✅ Featured image set <br> update page!')
 
 				});
 
@@ -72,12 +68,7 @@
 			var insert_url = $('#theimgurl').text(),
 			img_tag    = '<img src="'+insert_url+'">';
 
-			// Switch to HTML-editor
-			jQuery('#content-html').trigger('click');
-			// Append to WYSIWYG-text area
-			jQuery('.wp-editor-area').val($('.wp-editor-area').val()+img_tag);
-			// Switch back to Tiny MCE
-			jQuery('#content-tmce').trigger('click');
+			jQuery(img_tag).insertAfter( ".block-editor-block-list__layout.is-root-container p" );
 
 			e.preventDefault();
 
@@ -110,6 +101,8 @@
 			// Set number of attachments
 			$('.countattachments').text(parseInt(att_count)+1+' '+AlbumCoverFinderParams.files);
 
+			console.log(img_url);
+
 			// Ajax request, set post post thumbnail
 			$.post(
 				AlbumCoverFinderParams.ajax_url,	{
@@ -118,8 +111,8 @@
 					postid: pid,
 				},	function(data) {
 
-						$('.acoverfind_attachments').prepend('<div class="acoverfind_file cf"><img data-acoverfind_fileid="'+pid+'" src="'+img_url+'"><div class="acoverfind_text"><a class="setpostthumbnail button" value="'+AlbumCoverFinderParams.savefirst+'" disabled="disabled">'+AlbumCoverFinderParams.savefirst+'</a><a href="#" class="acoverfind_detach_attachment">'+AlbumCoverFinderParams.remove+'</a></div></div>');
-						$('#wait').hide();
+					jQuery(".components-button.editor-post-featured-image__toggle" ).html('✅ Featured image set <br> update page!')
+
 				});
 
 		});
@@ -144,12 +137,7 @@
 			var image_url = $(this).parent().parent().find('img').attr('src').replace('-150x150','');
 			var img_tag    = '<img src="'+(image_url)+'">';
 
-			// Switch to HTML-editor
-			jQuery('#content-html').trigger('click');
-			// Append to WYSIWYG-text area
-			jQuery('.wp-editor-area').val($('.wp-editor-area').val()+img_tag);
-			// Switch back to Tiny MCE
-			jQuery('#content-tmce').trigger('click');
+			jQuery(img_tag).insertAfter( ".block-editor-block-list__layout.is-root-container p" );
 
 			e.preventDefault();
 
@@ -191,7 +179,7 @@
 			// Variables to send via Ajax
 			var encoded_artist = encodeURIComponent(artist),
 			encoded_album      = encodeURIComponent(album),
-			lastfm_api_url     = 'http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=853b3e9d9f565707e7edd6f878c3d587&artist='+encoded_artist+'&album='+encoded_album+'&format=json',
+			lastfm_api_url     = 'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=853b3e9d9f565707e7edd6f878c3d587&artist='+encoded_artist+'&album='+encoded_album+'&format=json',
 			html               = '';
 
 			clearSearch();
