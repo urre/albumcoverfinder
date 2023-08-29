@@ -101,8 +101,6 @@
 			// Set number of attachments
 			$('.countattachments').text(parseInt(att_count)+1+' '+AlbumCoverFinderParams.files);
 
-			console.log(img_url);
-
 			// Ajax request, set post post thumbnail
 			$.post(
 				AlbumCoverFinderParams.ajax_url,	{
@@ -179,7 +177,7 @@
 			// Variables to send via Ajax
 			var encoded_artist = encodeURIComponent(artist),
 			encoded_album      = encodeURIComponent(album),
-			lastfm_api_url     = 'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=853b3e9d9f565707e7edd6f878c3d587&artist='+encoded_artist+'&album='+encoded_album+'&format=json',
+			lastfm_api_url     = 'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key='+AlbumCoverFinderParams.last_fm_api_key+'&artist='+encoded_artist+'&album='+encoded_album+'&format=json',
 			html               = '';
 
 			clearSearch();
@@ -205,7 +203,7 @@
 						$('#setposthtumbnail').attr("disabled", false);
 						$('#findalbum').val(AlbumCoverFinderParams.search);
 						$('.clear').attr("disabled", false);
-
+						$('#query_album + p').hide();
 					} else {
 						html += '<p>'+AlbumCoverFinderParams.nofound+'</p>';
 						$('#insertineditor').attr("disabled", true);
@@ -218,8 +216,11 @@
 					$('#album_info').fadeIn(200);
 					$('#cover img').eq(2).remove();
 					$('#findalbum').val(AlbumCoverFinderParams.search);
+
 				},
 				error : function(e,d,f){
+					$('#wait').hide();
+					$('#query_album').after('<p>Nothing was found</p>');
 
 				},
 			});

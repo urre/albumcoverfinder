@@ -3,7 +3,7 @@
 Plugin Name: Album cover finder
 Plugin URI: http://labs.urre.me/albumcoverfinder/
 Description: A simple plugin for finding album cover art via the LastFM API. You can set attachment, featured image and insert cover in post editor
-Version: 0.6.0
+Version: 0.7.0
 Author: Urban Sanden
 Author URI: http://urre.me
 Author Email: hej@urre.me
@@ -12,7 +12,7 @@ Tags: album, art, cover, lastfm, music, records
 License: GPL2
 */
 
-/*  Copyright 2020 Urban Sanden (email: hej@urre.me)
+/*  Copyright 2023 Urban Sanden (email: hej@urre.me)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -45,6 +45,46 @@ function __construct() {
     add_action('wp_ajax_nopriv_and_action', array( $this, 'xhr') );
     add_action( 'init', array( $this, 'add_search_boxes' ) );
 
+    add_action('admin_menu', array($this, 'add_menu'));
+    add_action('admin_init', array($this, 'register_settings'));
+
+}
+
+public function add_menu() {
+    add_menu_page(
+        'Album Cover Finder Settings',
+        'Album Cover Finder',
+        'manage_options',
+        'album-cover-finder-settings',
+        array($this, 'settings_page')
+    );
+}
+
+public function register_settings() {
+    register_setting('album-cover-finder-settings-group', 'album_cover_finder_api_key');
+}
+
+public function settings_page() {
+    ?>
+    <div class="wrap">
+        <h1>Album Cover Finder Settings</h1>
+        <form method="post" action="options.php">
+            <?php settings_fields('album-cover-finder-settings-group'); ?>
+            <?php do_settings_sections('album-cover-finder-settings-group'); ?>
+            <table class="form-table">
+                <tr valign="top">
+                    <th scope="row">Last.fm API Key</th>
+                    <td><input type="text" name="album_cover_finder_api_key" value="<?php echo esc_attr(get_option('album_cover_finder_api_key')); ?>" /></td>
+                </tr>
+            </table>
+            <?php submit_button(); ?>
+        </form>
+    </div>
+    <?php
+}
+
+public function get_api_key() {
+    return get_option('album_cover_finder_api_key');
 }
 
 /**
@@ -87,10 +127,11 @@ public function register_admin_scripts() {
         'tryagain'  => __('Try again', 'albumcoverfinder'),
         'savenow'   => __('Save post to change/remove featured image', 'albumcoverfinder'),
         'ajax_url'  => admin_url( 'admin-ajax.php' ),
-        'uploadurl' => admin_url('media-upload.php')
+        'uploadurl' => admin_url('media-upload.php'),
+        'last_fm_api_key' => __($this->get_api_key(), 'albumcoverfinder')
     );
 
-    # Localize script
+    # Localize scriptget_api_key
     wp_localize_script('albumcoverfinder-admin-script', 'AlbumCoverFinderParams', $js_data);
 
 }
