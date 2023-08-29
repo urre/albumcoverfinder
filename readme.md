@@ -20,6 +20,13 @@ The plugin saves the album cover art to your media library
 1. Upload the plugin to your plugins directory
 2. Activate the plugin
 
+## Add your Last.fm API key
+
+To use the plugin you now need to use your own [Last.fm API Key](https://www.last.fm/api/authentication). Visit the plugin settings page and add it there.
+
+![Settings page](https://github.com/urre/albumcoverfinder/assets/307676/5b8b6bba-013c-4548-907b-d1c54827cf97)
+
+
 ## Uninstall
 1. Deactivate plugin
 
